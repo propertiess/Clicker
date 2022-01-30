@@ -17,7 +17,7 @@ public class SQLiteConnection {
     }
 
 
-    public static void newGamer(Gamer gamer) throws ClassNotFoundException, SQLException {
+    public  void newGamer(Gamer gamer) throws ClassNotFoundException, SQLException {
         String query = "INSERT INTO main . gamer (" + Const.GAMER_ID + "," +
                 Const.GAMER_MONEY + "," + Const.GAMER_LEVEL_AUTO_CLICK
                 + ", "
@@ -51,9 +51,9 @@ public class SQLiteConnection {
 
             prSt.executeUpdate();
         } catch (SQLException e) {
-            e.printStackTrace();
+            System.out.println("SQLEreWriteGamer");
         } catch (ClassNotFoundException e) {
-            e.printStackTrace();
+            System.out.println("ClassNotFoundreWriteGamer");
         }
 
     }
@@ -69,9 +69,10 @@ public class SQLiteConnection {
 
             resSet = prSt.executeQuery();
         } catch (SQLException e) {
-            e.printStackTrace();
+            System.out.println("SQLgetGamer");
         } catch (ClassNotFoundException e) {
-            e.printStackTrace();
+            System.out.println("ClassNotFoundgetGamer");
+
         }
         return resSet;
     }

@@ -44,18 +44,13 @@ public class MainController extends Thread {
 
         }
         if(counter_int == 0) {
-            SQLiteConnection connection = new SQLiteConnection();
-
-            String money = counterText.getText();
-            String gamerlevelAutoClick = level + "";
-            String priceImprove = StoreController.price_int + "";
-            Gamer gamer = new Gamer(money, gamerlevelAutoClick, "1", priceImprove);
+            Gamer gamer = new Gamer(counterText.getText(), level + "", "1", StoreController.price_int + "");
             try {
                 connection.newGamer(gamer);
             } catch (ClassNotFoundException e) {
-                e.printStackTrace();
+                System.out.println("ClassNotFound");
             } catch (SQLException e) {
-                e.printStackTrace();
+                System.out.println("SqlErr");
             }
         }
         counterText.setText(counter_int + "");
@@ -70,7 +65,6 @@ public class MainController extends Thread {
 
 
         buttonToStore.setOnAction(event -> {
-
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("store.fxml"));
             try {
@@ -80,18 +74,18 @@ public class MainController extends Thread {
             }
             Parent root = loader.getRoot();
             Stage stage = new Stage();
-            stage.initOwner(buttonToStore.getScene().getWindow());
             stage.setScene(new Scene(root));
             stage.setResizable(false);
 
             stage.showAndWait();
 
 
-            StoreController controller = loader.getController();
-            counterText.setText(controller.getText());
             if (level > 1) {
-                start();
-
+                try {
+                    start();
+                } catch (IllegalThreadStateException e){
+                    System.out.println("IllegalThread");
+                }
             }
 
         });
@@ -118,7 +112,7 @@ public class MainController extends Thread {
             try {
                 sleep(1000);
             } catch (InterruptedException e) {
-                System.out.println("ok");
+                System.out.println("run");
             }
 
             if(!buttonToStore.getScene().getWindow().isShowing()){
@@ -141,7 +135,6 @@ public class MainController extends Thread {
 
     }
     private void loadGamer() {
-        SQLiteConnection connection = new SQLiteConnection();
 
         ResultSet load = connection.getGamer("1");
 
@@ -159,9 +152,10 @@ public class MainController extends Thread {
 
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            System.out.println("loadGamer");
         }
     }
+
 
 
 }

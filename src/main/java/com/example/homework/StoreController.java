@@ -36,10 +36,7 @@ public class StoreController {
 
         });
 
-        backToMain.setOnMouseClicked(mouseEvent -> {
-            backToMain.getScene().getWindow().hide();
-
-        });
+        backToMain.setOnMouseClicked(mouseEvent -> backToMain.getScene().getWindow().hide());
 
     }
     @FXML
@@ -49,10 +46,6 @@ public class StoreController {
         price_int *= 1.5;
         price.setText("" + price_int);
         MainController.level++;
-        System.out.println(MainController.level);
-    }
-    public String getText(){
-        return counterTwo.getText();
     }
 
 
