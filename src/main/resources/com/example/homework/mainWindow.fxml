@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="main_window" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="400.0" style="-fx-background-color: #813DBFFF;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.homework.MainController">
+<children>
+   <ImageView fx:id="CookieButton" fitHeight="150.0" fitWidth="200.0" layoutX="126.0" layoutY="200.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@../../../assets/free-icon-flask-167732.png" />
+      </image>
+   </ImageView>
+   <Button fx:id="buttonToStore" layoutX="302.0" layoutY="48.0" mnemonicParsing="false" style="-fx-background-color: #4CD7FFFF; -fx-border-color: #000; -fx-background-radius: 5; -fx-border-radius: 5;" text="Магазин" />
+      <Text fx:id="counterText" fontSmoothingType="LCD" layoutX="96.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="CENTER" wrappingWidth="209.556640625">
+         <font>
+            <Font name="Bodoni MT Condensed" size="49.0" />
+         </font>
+      </Text>
+</children>
+</AnchorPane>
