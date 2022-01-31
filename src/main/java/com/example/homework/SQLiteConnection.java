@@ -19,10 +19,8 @@ public class SQLiteConnection {
 
     public  void newGamer(Gamer gamer) throws ClassNotFoundException, SQLException {
         String query = "INSERT INTO main . gamer (" + Const.GAMER_ID + "," +
-                Const.GAMER_MONEY + "," + Const.GAMER_LEVEL_AUTO_CLICK
-                + ", "
-                + Const.GAMER_PRICE_IMPROVE
-                + ")" + " VALUES(?,?,?,?)";
+                Const.GAMER_MONEY + "," + Const.GAMER_LEVEL_AUTO_CLICK + ", "
+                + Const.GAMER_PRICE_IMPROVE + ")" + " VALUES(?,?,?,?)";
 
         PreparedStatement statement = getDbConnection().prepareStatement(query);
         statement.setString(1, gamer.getId());
@@ -36,7 +34,9 @@ public class SQLiteConnection {
 
     public void reWriteGamer(Gamer gamer) {
         String reWrite = "UPDATE main . gamer "  + "SET " +
-                Const.GAMER_MONEY + "= ? ," + Const.GAMER_LEVEL_AUTO_CLICK + " = ? ," + Const.GAMER_PRICE_IMPROVE + " = ? "  + "WHERE " + "( " + Const.GAMER_ID + " = " + "? )";
+                Const.GAMER_MONEY + "= ? ," + Const.GAMER_LEVEL_AUTO_CLICK +
+                " = ? ," + Const.GAMER_PRICE_IMPROVE + " = ? WHERE "
+                + "( " + Const.GAMER_ID + " =? )";
 
 
         //       UPDATE `clicker`.`gamer` SET `money` = '65665', `gamerlevelAutoClick` = '333' WHERE (`idgamer` = '1');
@@ -60,7 +60,7 @@ public class SQLiteConnection {
 
     public ResultSet getGamer(String id){
         ResultSet resSet = null;
-        String select = "SELECT * FROM main . gamer " + " WHERE " +
+        String select = "SELECT * FROM main . gamer WHERE " +
                 Const.GAMER_ID + "=?";
 
         try {
