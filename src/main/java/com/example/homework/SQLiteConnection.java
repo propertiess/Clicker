@@ -35,8 +35,8 @@ public class SQLiteConnection {
     public void reWriteGamer(Gamer gamer) {
         String reWrite = "UPDATE main . gamer "  + "SET " +
                 Const.GAMER_MONEY + "= ? ," + Const.GAMER_LEVEL_AUTO_CLICK +
-                " = ? ," + Const.GAMER_PRICE_IMPROVE + " = ? WHERE "
-                + "( " + Const.GAMER_ID + " =? )";
+                " = ? ," + Const.GAMER_PRICE_IMPROVE + " = ? WHERE ("
+                 + Const.GAMER_ID + " =? )";
 
 
         //       UPDATE `clicker`.`gamer` SET `money` = '65665', `gamerlevelAutoClick` = '333' WHERE (`idgamer` = '1');
